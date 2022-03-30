@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
 
 using MelonLoader;
 using HarmonyLib;
@@ -20,7 +20,7 @@ namespace Rush_bhaptics
             tactsuitVr = new TactsuitVR();
             tactsuitVr.PlaybackHaptics("HeartBeat");
         }
-
+        
         [HarmonyPatch(typeof(AircraftControl), "Launch", new Type[] { })]
         public class bhaptics_PlayerLaunch
         {
@@ -47,10 +47,52 @@ namespace Rush_bhaptics
             [HarmonyPostfix]
             public static void Postfix(AircraftControl __instance)
             {
-                tactsuitVr.LOG("Speed: " + __instance.normalizedTotalSpeed.ToString());
+                if (__instance.normalizedTotalSpeed == 0.0f) return;
+                //tactsuitVr.LOG("Speed: " + __instance.normalizedTotalSpeed.ToString());
                 tactsuitVr.updateGlideSpeed(__instance.normalizedTotalSpeed);
             }
         }
 
+        [HarmonyPatch(typeof(AircraftControl), "GoalReached", new Type[] { })]
+        public class bhaptics_GoalReached
+        {
+            [HarmonyPostfix]
+            public static void Postfix()
+            {
+                tactsuitVr.PlaybackHaptics("LevelUp");
+            }
+        }
+
+        [HarmonyPatch(typeof(AircraftControl), "HitCollectible", new Type[] { typeof(Adventure.AdventureItemType) })]
+        public class bhaptics_HitCollectible
+        {
+            [HarmonyPostfix]
+            public static void Postfix(Adventure.AdventureItemType type)
+            {
+                tactsuitVr.PlaybackHaptics("LevelUp");
+            }
+        }
+
+        [HarmonyPatch(typeof(AircraftControl), "Crashed", new Type[] { typeof(UnityEngine.Collider) })]
+        public class bhaptics_Crashed
+        {
+            [HarmonyPostfix]
+            public static void Postfix()
+            {
+                if (tactsuitVr.IsPlaying("HitByWall")) return;
+                tactsuitVr.StopGliding();
+                tactsuitVr.PlaybackHaptics("HitByWall");
+            }
+        }
+
+        [HarmonyPatch(typeof(AircraftControl), "Splashdown", new Type[] {  })]
+        public class bhaptics_Splashdown
+        {
+            [HarmonyPostfix]
+            public static void Postfix()
+            {
+                tactsuitVr.StopGliding();
+            }
+        }
     }
 }

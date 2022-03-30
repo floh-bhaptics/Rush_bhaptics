@@ -67,8 +67,8 @@ namespace MyBhapticsTactsuit
 
         public void updateGlideSpeed(float speed)
         {
-            glideIntensity = (speed / 20.0f);
-            glidePause = Math.Max( (int)(500 * (1.0 - (speed / 20.0f))), 0) + 30;
+            glideIntensity = speed * 0.6f;
+            glidePause = Math.Max( (int)(500 * (1.0f - speed)), 0) + 30;
         }
 
         public TactsuitVR()
@@ -89,9 +89,9 @@ namespace MyBhapticsTactsuit
 
         public void LOG(string logStr)
         {
-#pragma warning disable CS0618 // remove warning that the logger is deprecated
+//#pragma warning disable CS0618 // remove warning that the logger is deprecated
             MelonLogger.Msg(logStr);
-#pragma warning restore CS0618
+//#pragma warning restore CS0618
         }
 
 
@@ -205,6 +205,12 @@ namespace MyBhapticsTactsuit
             StopHeartBeat();
             StopGliding();
         }
+
+        public bool IsPlaying(String effect)
+        {
+            return bHaptics.IsPlaying(effect);
+        }
+
 
 
     }

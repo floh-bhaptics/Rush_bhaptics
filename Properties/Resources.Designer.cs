@@ -223,6 +223,15 @@ namespace Rush_bhaptics.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die {&quot;project&quot;:{&quot;createdAt&quot;:1644951636936,&quot;description&quot;:&quot;&quot;,&quot;layout&quot;:{&quot;layouts&quot;:{&quot;VestBack&quot;:[{&quot;index&quot;:0,&quot;x&quot;:0,&quot;y&quot;:0},{&quot;index&quot;:1,&quot;x&quot;:0.333,&quot;y&quot;:0},{&quot;index&quot;:2,&quot;x&quot;:0.667,&quot;y&quot;:0},{&quot;index&quot;:3,&quot;x&quot;:1,&quot;y&quot;:0},{&quot;index&quot;:4,&quot;x&quot;:0,&quot;y&quot;:0.25},{&quot;index&quot;:5,&quot;x&quot;:0.333,&quot;y&quot;:0.25},{&quot;index&quot;:6,&quot;x&quot;:0.667,&quot;y&quot;:0.25},{&quot;index&quot;:7,&quot;x&quot;:1,&quot;y&quot;:0.25},{&quot;index&quot;:8,&quot;x&quot;:0,&quot;y&quot;:0.5},{&quot;index&quot;:9,&quot;x&quot;:0.333,&quot;y&quot;:0.5},{&quot;index&quot;:10,&quot;x&quot;:0.667,&quot;y&quot;:0.5},{&quot;index&quot;:11,&quot;x&quot;:1,&quot;y&quot;:0.5},{&quot;index&quot;:12,&quot;x&quot;:0,&quot;y&quot;:0.75},{&quot;index&quot;:13,&quot;x&quot;:0.333,&quot;y&quot;:0.75},{&quot;index&quot;:14,&quot;x&quot;:0.667,&quot;y... ähnelt.
+        /// </summary>
+        internal static string HitByWall {
+            get {
+                return ResourceManager.GetString("HitByWall", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die {&quot;project&quot;:{&quot;createdAt&quot;:1644938948308,&quot;description&quot;:&quot;&quot;,&quot;layout&quot;:{&quot;layouts&quot;:{&quot;VestBack&quot;:[{&quot;index&quot;:0,&quot;x&quot;:0,&quot;y&quot;:0},{&quot;index&quot;:1,&quot;x&quot;:0.333,&quot;y&quot;:0},{&quot;index&quot;:2,&quot;x&quot;:0.667,&quot;y&quot;:0},{&quot;index&quot;:3,&quot;x&quot;:1,&quot;y&quot;:0},{&quot;index&quot;:4,&quot;x&quot;:0,&quot;y&quot;:0.25},{&quot;index&quot;:5,&quot;x&quot;:0.333,&quot;y&quot;:0.25},{&quot;index&quot;:6,&quot;x&quot;:0.667,&quot;y&quot;:0.25},{&quot;index&quot;:7,&quot;x&quot;:1,&quot;y&quot;:0.25},{&quot;index&quot;:8,&quot;x&quot;:0,&quot;y&quot;:0.5},{&quot;index&quot;:9,&quot;x&quot;:0.333,&quot;y&quot;:0.5},{&quot;index&quot;:10,&quot;x&quot;:0.667,&quot;y&quot;:0.5},{&quot;index&quot;:11,&quot;x&quot;:1,&quot;y&quot;:0.5},{&quot;index&quot;:12,&quot;x&quot;:0,&quot;y&quot;:0.75},{&quot;index&quot;:13,&quot;x&quot;:0.333,&quot;y&quot;:0.75},{&quot;index&quot;:14,&quot;x&quot;:0.667,&quot;y... ähnelt.
         /// </summary>
         internal static string LevelUp {
